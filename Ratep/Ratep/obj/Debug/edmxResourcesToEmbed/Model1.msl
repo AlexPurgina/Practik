@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище Practik1282ModelContainer" CdmEntityContainer="Practik1282Entities">
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="Practik1282Model.Employees">
+        <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="Code_empl" ColumnName="Code_empl" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="Code_post" ColumnName="Code_post" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Material">
+      <EntityTypeMapping TypeName="Practik1282Model.Material">
+        <MappingFragment StoreEntitySet="Material">
+          <ScalarProperty Name="Num_material" ColumnName="Num_material" />
+          <ScalarProperty Name="Name_material" ColumnName="Name_material" />
+          <ScalarProperty Name="Code_unit" ColumnName="Code_unit" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Material_card">
+      <EntityTypeMapping TypeName="Practik1282Model.Material_card">
+        <MappingFragment StoreEntitySet="Material_card">
+          <ScalarProperty Name="Num_product" ColumnName="Num_product" />
+          <ScalarProperty Name="Num_material" ColumnName="Num_material" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Num_card" ColumnName="Num_card" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Nomencloture">
+      <EntityTypeMapping TypeName="Practik1282Model.Nomencloture">
+        <MappingFragment StoreEntitySet="Nomencloture">
+          <ScalarProperty Name="Num_product" ColumnName="Num_product" />
+          <ScalarProperty Name="Name_product" ColumnName="Name_product" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Operation">
+      <EntityTypeMapping TypeName="Practik1282Model.Operation">
+        <MappingFragment StoreEntitySet="Operation">
+          <ScalarProperty Name="Num_operation" ColumnName="Num_operation" />
+          <ScalarProperty Name="Name_oeration" ColumnName="Name_oeration" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Passport_data">
+      <EntityTypeMapping TypeName="Practik1282Model.Passport_data">
+        <MappingFragment StoreEntitySet="Passport_data">
+          <ScalarProperty Name="Code_empl" ColumnName="Code_empl" />
+          <ScalarProperty Name="Serial" ColumnName="Serial" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Date_birth" ColumnName="Date_birth" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Post">
+      <EntityTypeMapping TypeName="Practik1282Model.Post">
+        <MappingFragment StoreEntitySet="Post">
+          <ScalarProperty Name="Code_post" ColumnName="Code_post" />
+          <ScalarProperty Name="Name_post" ColumnName="Name_post" />
+          <ScalarProperty Name="Salary_per_hours" ColumnName="Salary_per_hours" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Structure">
+      <EntityTypeMapping TypeName="Practik1282Model.Structure">
+        <MappingFragment StoreEntitySet="Structure">
+          <ScalarProperty Name="Num_product_where" ColumnName="Num_product_where" />
+          <ScalarProperty Name="Num_product_what" ColumnName="Num_product_what" />
+          <ScalarProperty Name="Quantity_product" ColumnName="Quantity_product" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="Practik1282Model.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Unit">
+      <EntityTypeMapping TypeName="Practik1282Model.Unit">
+        <MappingFragment StoreEntitySet="Unit">
+          <ScalarProperty Name="Code_unit" ColumnName="Code_unit" />
+          <ScalarProperty Name="Name_unit" ColumnName="Name_unit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="Practik1282Model.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Card_work">
+      <EntityTypeMapping TypeName="Practik1282Model.Card_work">
+        <MappingFragment StoreEntitySet="Card_work">
+          <ScalarProperty Name="Num_product" ColumnName="Num_product" />
+          <ScalarProperty Name="Code_post" ColumnName="Code_post" />
+          <ScalarProperty Name="Num_operation" ColumnName="Num_operation" />
+          <ScalarProperty Name="Order_operation" ColumnName="Order_operation" />
+          <ScalarProperty Name="Time_spent" ColumnName="Time_spent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FA_Card_work">
+      <EntityTypeMapping TypeName="Practik1282Model.FA_Card_work">
+        <MappingFragment StoreEntitySet="FA_Card_work">
+          <ScalarProperty Name="Num_product" ColumnName="Num_product" />
+          <ScalarProperty Name="Code_post" ColumnName="Code_post" />
+          <ScalarProperty Name="Num_operation" ColumnName="Num_operation" />
+          <ScalarProperty Name="Order_operation" ColumnName="Order_operation" />
+          <ScalarProperty Name="Time_spent" ColumnName="Time_spent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FA_Employees">
+      <EntityTypeMapping TypeName="Practik1282Model.FA_Employees">
+        <MappingFragment StoreEntitySet="FA_Employees">
+          <ScalarProperty Name="Code_empl" ColumnName="Code_empl" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="Code_post" ColumnName="Code_post" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FA_Mat_card">
+      <EntityTypeMapping TypeName="Practik1282Model.FA_Mat_card">
+        <MappingFragment StoreEntitySet="FA_Mat_card">
+          <ScalarProperty Name="Num_product" ColumnName="Num_product" />
+          <ScalarProperty Name="Name_product" ColumnName="Name_product" />
+          <ScalarProperty Name="Num_material" ColumnName="Num_material" />
+          <ScalarProperty Name="Name_material" ColumnName="Name_material" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Name_unit" ColumnName="Name_unit" />
+          <ScalarProperty Name="Num_card" ColumnName="Num_card" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FA_Mater">
+      <EntityTypeMapping TypeName="Practik1282Model.FA_Mater">
+        <MappingFragment StoreEntitySet="FA_Mater">
+          <ScalarProperty Name="Num_material" ColumnName="Num_material" />
+          <ScalarProperty Name="Name_material" ColumnName="Name_material" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Code_unit" ColumnName="Code_unit" />
+          <ScalarProperty Name="Name_unit" ColumnName="Name_unit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FA_Material">
+      <EntityTypeMapping TypeName="Practik1282Model.FA_Material">
+        <MappingFragment StoreEntitySet="FA_Material">
+          <ScalarProperty Name="Num_material" ColumnName="Num_material" />
+          <ScalarProperty Name="Name_material" ColumnName="Name_material" />
+          <ScalarProperty Name="Code_unit" ColumnName="Code_unit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FA_Material_card">
+      <EntityTypeMapping TypeName="Practik1282Model.FA_Material_card">
+        <MappingFragment StoreEntitySet="FA_Material_card">
+          <ScalarProperty Name="Num_product" ColumnName="Num_product" />
+          <ScalarProperty Name="Num_material" ColumnName="Num_material" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FA_Nomencloture">
+      <EntityTypeMapping TypeName="Practik1282Model.FA_Nomencloture">
+        <MappingFragment StoreEntitySet="FA_Nomencloture">
+          <ScalarProperty Name="Num_product" ColumnName="Num_product" />
+          <ScalarProperty Name="Name_product" ColumnName="Name_product" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FA_Operation">
+      <EntityTypeMapping TypeName="Practik1282Model.FA_Operation">
+        <MappingFragment StoreEntitySet="FA_Operation">
+          <ScalarProperty Name="Num_operation" ColumnName="Num_operation" />
+          <ScalarProperty Name="Name_oeration" ColumnName="Name_oeration" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FA_Passport_data">
+      <EntityTypeMapping TypeName="Practik1282Model.FA_Passport_data">
+        <MappingFragment StoreEntitySet="FA_Passport_data">
+          <ScalarProperty Name="Code_empl" ColumnName="Code_empl" />
+          <ScalarProperty Name="Serial" ColumnName="Serial" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Date_birth" ColumnName="Date_birth" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FA_Post">
+      <EntityTypeMapping TypeName="Practik1282Model.FA_Post">
+        <MappingFragment StoreEntitySet="FA_Post">
+          <ScalarProperty Name="Code_post" ColumnName="Code_post" />
+          <ScalarProperty Name="Name_post" ColumnName="Name_post" />
+          <ScalarProperty Name="Salary_per_hours" ColumnName="Salary_per_hours" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FA_StructProd">
+      <EntityTypeMapping TypeName="Practik1282Model.FA_StructProd">
+        <MappingFragment StoreEntitySet="FA_StructProd">
+          <ScalarProperty Name="Num_product_where" ColumnName="Num_product_where" />
+          <ScalarProperty Name="Name_product" ColumnName="Name_product" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FA_Structure">
+      <EntityTypeMapping TypeName="Practik1282Model.FA_Structure">
+        <MappingFragment StoreEntitySet="FA_Structure">
+          <ScalarProperty Name="Num_product_where" ColumnName="Num_product_where" />
+          <ScalarProperty Name="Num_product_what" ColumnName="Num_product_what" />
+          <ScalarProperty Name="Quantity_product" ColumnName="Quantity_product" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FA_structure_name">
+      <EntityTypeMapping TypeName="Practik1282Model.FA_structure_name">
+        <MappingFragment StoreEntitySet="FA_structure_name">
+          <ScalarProperty Name="Num_product_where" ColumnName="Num_product_where" />
+          <ScalarProperty Name="Name_product_where" ColumnName="Name_product_where" />
+          <ScalarProperty Name="Num_product_what" ColumnName="Num_product_what" />
+          <ScalarProperty Name="Name_product_what" ColumnName="Name_product_what" />
+          <ScalarProperty Name="Quantity_product" ColumnName="Quantity_product" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FA_Unit">
+      <EntityTypeMapping TypeName="Practik1282Model.FA_Unit">
+        <MappingFragment StoreEntitySet="FA_Unit">
+          <ScalarProperty Name="Code_unit" ColumnName="Code_unit" />
+          <ScalarProperty Name="Name_unit" ColumnName="Name_unit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionName="Хранилище Practik1282Model.BuildProcess" FunctionImportName="BuildProcess">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Practik1282Model.BuildProcess_Result">
+          <ScalarProperty Name="Num_product" ColumnName="Num_product" />
+          <ScalarProperty Name="Code_post" ColumnName="Code_post" />
+          <ScalarProperty Name="Num_operation" ColumnName="Num_operation" />
+          <ScalarProperty Name="Order_operation" ColumnName="Order_operation" />
+          <ScalarProperty Name="Time_spent" ColumnName="Time_spent" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="Хранилище Practik1282Model.SumTrud" FunctionImportName="SumTrud">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Practik1282Model.SumTrud_Result">
+          <ScalarProperty Name="Code_post" ColumnName="Code_post" />
+          <ScalarProperty Name="Name_post" ColumnName="Name_post" />
+          <ScalarProperty Name="Time_spent" ColumnName="Time_spent" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DeleteMaterial" FunctionName="Хранилище Practik1282Model.DeleteMaterial" />
+    <FunctionImportMapping FunctionImportName="DeleteMaterial_card" FunctionName="Хранилище Practik1282Model.DeleteMaterial_card" />
+    <FunctionImportMapping FunctionImportName="DT_Card_work" FunctionName="Хранилище Practik1282Model.DT_Card_work" />
+    <FunctionImportMapping FunctionImportName="DT_Employees" FunctionName="Хранилище Practik1282Model.DT_Employees" />
+    <FunctionImportMapping FunctionImportName="DT_Material" FunctionName="Хранилище Practik1282Model.DT_Material" />
+    <FunctionImportMapping FunctionImportName="DT_Nomencloture" FunctionName="Хранилище Practik1282Model.DT_Nomencloture" />
+    <FunctionImportMapping FunctionImportName="DT_Operation" FunctionName="Хранилище Practik1282Model.DT_Operation" />
+    <FunctionImportMapping FunctionImportName="DT_Passport_data" FunctionName="Хранилище Practik1282Model.DT_Passport_data" />
+    <FunctionImportMapping FunctionImportName="DT_Post" FunctionName="Хранилище Practik1282Model.DT_Post" />
+    <FunctionImportMapping FunctionImportName="DT_Structure" FunctionName="Хранилище Practik1282Model.DT_Structure" />
+    <FunctionImportMapping FunctionImportName="DT_Unit" FunctionName="Хранилище Practik1282Model.DT_Unit" />
+    <FunctionImportMapping FunctionImportName="InsertMaterial" FunctionName="Хранилище Practik1282Model.InsertMaterial" />
+    <FunctionImportMapping FunctionImportName="InsertMaterial_card" FunctionName="Хранилище Practik1282Model.InsertMaterial_card" />
+    <FunctionImportMapping FunctionImportName="IT_Material" FunctionName="Хранилище Practik1282Model.IT_Material" />
+    <FunctionImportMapping FunctionImportName="IT_Material_card" FunctionName="Хранилище Practik1282Model.IT_Material_card" />
+    <FunctionImportMapping FunctionImportName="IT_Nomencloture" FunctionName="Хранилище Practik1282Model.IT_Nomencloture" />
+    <FunctionImportMapping FunctionImportName="IT_Post" FunctionName="Хранилище Practik1282Model.IT_Post" />
+    <FunctionImportMapping FunctionImportName="IT_Structure" FunctionName="Хранилище Practik1282Model.IT_Structure" />
+    <FunctionImportMapping FunctionImportName="IT_Unit" FunctionName="Хранилище Practik1282Model.IT_Unit" />
+    <FunctionImportMapping FunctionImportName="kol_time" FunctionName="Хранилище Practik1282Model.kol_time" />
+    <FunctionImportMapping FunctionImportName="Quantity_proc" FunctionName="Хранилище Practik1282Model.Quantity_proc" />
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище Practik1282Model.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище Practik1282Model.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище Practik1282Model.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Хранилище Practik1282Model.sp_helpdiagramdefinition" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Хранилище Practik1282Model.sp_helpdiagrams" />
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище Practik1282Model.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище Practik1282Model.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="UpdateMaterial" FunctionName="Хранилище Practik1282Model.UpdateMaterial" />
+    <FunctionImportMapping FunctionImportName="UpdateMaterial_card" FunctionName="Хранилище Practik1282Model.UpdateMaterial_card" />
+    <FunctionImportMapping FunctionImportName="Quantity_proc1" FunctionName="Хранилище Practik1282Model.Quantity_proc1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Practik1282Model.Quantity_proc1_Result">
+          <ScalarProperty Name="Num_product_what" ColumnName="Num_product_what" />
+          <ScalarProperty Name="Name_product" ColumnName="Name_product" />
+          <ScalarProperty Name="Quantity_product" ColumnName="Quantity_product" />
+          <ScalarProperty Name="Num_material" ColumnName="Num_material" />
+          <ScalarProperty Name="Name_material" ColumnName="Name_material" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

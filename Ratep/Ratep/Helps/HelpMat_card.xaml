@@ -1,0 +1,15 @@
+﻿<Page x:Class="Ratep.Helps.HelpMat_card"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Ratep.Helps"
+      mc:Ignorable="d" 
+      d:DesignHeight="410" d:DesignWidth="700"
+      Title="HelpMat_card">
+
+    <Grid>
+        <TextBlock Text="Окно с данными из материальной карты"  HorizontalAlignment="Center" FontSize="26" FontFamily="Sitka Text"  />
+        <Image Source="HelpMat_card.png" Margin="0,35,0,0"  />
+    </Grid>
+</Page>

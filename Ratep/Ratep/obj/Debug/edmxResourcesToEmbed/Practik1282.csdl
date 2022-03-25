@@ -1,0 +1,678 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Practik1282Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <ComplexType Name="BuildProcess_Result">
+    <Property Name="Num_product" Type="Int32" Nullable="false" />
+    <Property Name="Code_post" Type="Int32" Nullable="false" />
+    <Property Name="Num_operation" Type="Int32" Nullable="false" />
+    <Property Name="Order_operation" Type="Int32" Nullable="false" />
+    <Property Name="Time_spent" Type="Int32" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="FA_Sum_Time_Spent_Result">
+    <Property Name="Изделие" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Затраченное_время" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </ComplexType>
+  <ComplexType Name="FA_Sum_Time_Spent_Product_Result">
+    <Property Name="Изделие" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Затраченное_время" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </ComplexType>
+  <ComplexType Name="GetFullConstructionData_Result">
+    <Property Name="Num_product" Type="Int32" />
+    <Property Name="Quantity" Type="Int32" />
+  </ComplexType>
+  <EntityContainer Name="Practik1282Entities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="BuildProcess" IsComposable="true" ReturnType="Collection(Practik1282Model.BuildProcess_Result)">
+      <Parameter Name="NomenclotureID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="FA_Sum_Time_Spent" IsComposable="true" ReturnType="Collection(Practik1282Model.FA_Sum_Time_Spent_Result)" />
+    <FunctionImport Name="FA_Sum_Time_Spent_Product" IsComposable="true" ReturnType="Collection(Practik1282Model.FA_Sum_Time_Spent_Product_Result)">
+      <Parameter Name="product" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetFullConstructionData" IsComposable="true" ReturnType="Collection(Practik1282Model.GetFullConstructionData_Result)">
+      <Parameter Name="Num_product" Mode="In" Type="Int32" />
+      <Parameter Name="Num_product2" Mode="In" Type="Int32" />
+      <Parameter Name="Quantity" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteMaterial">
+      <Parameter Name="NumMaterial" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteMaterial_card">
+      <Parameter Name="NumCard" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DT_Card_work">
+      <Parameter Name="Num_product" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DT_Employees">
+      <Parameter Name="Code_empl" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DT_Material">
+      <Parameter Name="Num_material" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DT_Nomencloture">
+      <Parameter Name="Num_product" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DT_Operation">
+      <Parameter Name="Num_operation" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DT_Passport_data">
+      <Parameter Name="Serial" Mode="In" Type="String" />
+      <Parameter Name="Number" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DT_Post">
+      <Parameter Name="Code_post" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DT_Structure">
+      <Parameter Name="Num_product_where" Mode="In" Type="Int32" />
+      <Parameter Name="Num_product_what" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DT_Unit">
+      <Parameter Name="Code_unit" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetEmployees" ReturnType="Collection(Practik1282Model.GetEmployees_Result)">
+      <Parameter Name="postID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="InsertMaterial">
+      <Parameter Name="NameMaterial" Mode="In" Type="String" />
+      <Parameter Name="NumUnit" Mode="In" Type="Int32" />
+      <Parameter Name="Price" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="InsertMaterial_card">
+      <Parameter Name="Numproduct" Mode="In" Type="Int32" />
+      <Parameter Name="Nummaterial" Mode="In" Type="Int32" />
+      <Parameter Name="Quantity" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Quantity_proc">
+      <Parameter Name="num_product" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Quantity_proc1" ReturnType="Collection(Practik1282Model.Quantity_proc1_Result)">
+      <Parameter Name="num_product" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="UpdateMaterial">
+      <Parameter Name="NumMaterial" Mode="In" Type="Int32" />
+      <Parameter Name="NameMaterial" Mode="In" Type="String" />
+      <Parameter Name="NumUnit" Mode="In" Type="Int32" />
+      <Parameter Name="Price" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateMaterial_card">
+      <Parameter Name="NumMaterial" Mode="In" Type="Int32" />
+      <Parameter Name="Numproduct" Mode="In" Type="Int32" />
+      <Parameter Name="Numcard" Mode="In" Type="Int32" />
+      <Parameter Name="Quantity" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="Card_work" EntityType="Practik1282Model.Card_work" />
+    <EntitySet Name="Consumer" EntityType="Practik1282Model.Consumer" />
+    <EntitySet Name="Employees" EntityType="Practik1282Model.Employees" />
+    <EntitySet Name="Material" EntityType="Practik1282Model.Material" />
+    <EntitySet Name="Material_card" EntityType="Practik1282Model.Material_card" />
+    <EntitySet Name="Nomencloture" EntityType="Practik1282Model.Nomencloture" />
+    <EntitySet Name="OKEI" EntityType="Practik1282Model.OKEI" />
+    <EntitySet Name="Operation" EntityType="Practik1282Model.Operation" />
+    <EntitySet Name="Passport_data" EntityType="Practik1282Model.Passport_data" />
+    <EntitySet Name="Post" EntityType="Practik1282Model.Post" />
+    <EntitySet Name="Profile" EntityType="Practik1282Model.Profile" />
+    <EntitySet Name="Provider" EntityType="Practik1282Model.Provider" />
+    <EntitySet Name="Rationing_groups" EntityType="Practik1282Model.Rationing_groups" />
+    <EntitySet Name="Stamp" EntityType="Practik1282Model.Stamp" />
+    <EntitySet Name="Structure" EntityType="Practik1282Model.Structure" />
+    <EntitySet Name="sysdiagrams" EntityType="Practik1282Model.sysdiagrams" />
+    <EntitySet Name="User" EntityType="Practik1282Model.User" />
+    <EntitySet Name="Work_piece" EntityType="Practik1282Model.Work_piece" />
+    <EntitySet Name="Workshop" EntityType="Practik1282Model.Workshop" />
+    <AssociationSet Name="FK_Card_work_Nomencloture" Association="Practik1282Model.FK_Card_work_Nomencloture">
+      <End Role="Nomencloture" EntitySet="Nomencloture" />
+      <End Role="Card_work" EntitySet="Card_work" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Card_work_Operation" Association="Practik1282Model.FK_Card_work_Operation">
+      <End Role="Operation" EntitySet="Operation" />
+      <End Role="Card_work" EntitySet="Card_work" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Card_work_Post" Association="Practik1282Model.FK_Card_work_Post">
+      <End Role="Post" EntitySet="Post" />
+      <End Role="Card_work" EntitySet="Card_work" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Consumer_Workshop" Association="Practik1282Model.FK_Consumer_Workshop">
+      <End Role="Workshop" EntitySet="Workshop" />
+      <End Role="Consumer" EntitySet="Consumer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employees_Post" Association="Practik1282Model.FK_Employees_Post">
+      <End Role="Post" EntitySet="Post" />
+      <End Role="Employees" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employees_User" Association="Practik1282Model.FK_Employees_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Employees" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Passport_data_Employees" Association="Practik1282Model.FK_Passport_data_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Passport_data" EntitySet="Passport_data" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_card_Material" Association="Practik1282Model.FK_Material_card_Material">
+      <End Role="Material" EntitySet="Material" />
+      <End Role="Material_card" EntitySet="Material_card" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_Profile" Association="Practik1282Model.FK_Material_Profile">
+      <End Role="Profile" EntitySet="Profile" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_Rationing_groups" Association="Practik1282Model.FK_Material_Rationing_groups">
+      <End Role="Rationing_groups" EntitySet="Rationing_groups" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_Stamp" Association="Practik1282Model.FK_Material_Stamp">
+      <End Role="Stamp" EntitySet="Stamp" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_Unit" Association="Practik1282Model.FK_Material_Unit">
+      <End Role="OKEI" EntitySet="OKEI" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_card_Nomencloture" Association="Practik1282Model.FK_Material_card_Nomencloture">
+      <End Role="Nomencloture" EntitySet="Nomencloture" />
+      <End Role="Material_card" EntitySet="Material_card" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_card_Work_piece" Association="Practik1282Model.FK_Material_card_Work_piece">
+      <End Role="Work_piece" EntitySet="Work_piece" />
+      <End Role="Material_card" EntitySet="Material_card" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_card_Workshop1" Association="Practik1282Model.FK_Material_card_Workshop1">
+      <End Role="Workshop" EntitySet="Workshop" />
+      <End Role="Material_card" EntitySet="Material_card" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_card_Workshop2" Association="Practik1282Model.FK_Material_card_Workshop2">
+      <End Role="Workshop" EntitySet="Workshop" />
+      <End Role="Material_card" EntitySet="Material_card" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Structure_Nomencloture" Association="Practik1282Model.FK_Structure_Nomencloture">
+      <End Role="Nomencloture" EntitySet="Nomencloture" />
+      <End Role="Structure" EntitySet="Structure" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Structure_Nomencloture1" Association="Practik1282Model.FK_Structure_Nomencloture1">
+      <End Role="Nomencloture" EntitySet="Nomencloture" />
+      <End Role="Structure" EntitySet="Structure" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Provider_Workshop" Association="Practik1282Model.FK_Provider_Workshop">
+      <End Role="Workshop" EntitySet="Workshop" />
+      <End Role="Provider" EntitySet="Provider" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="GetEmployees_Result">
+    <Property Type="String" Name="FullName" Nullable="true" MaxLength="152" />
+    <Property Type="String" Name="Name_post" Nullable="true" MaxLength="30" />
+    <Property Type="Decimal" Name="Salary_per_hours" Nullable="true" Precision="18" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="Quantity_proc1_Result">
+    <Property Type="Int32" Name="Num_product_what" Nullable="false" />
+    <Property Type="String" Name="Name_product" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="Quantity_product" Nullable="false" />
+    <Property Type="Int32" Name="Num_material" Nullable="false" />
+    <Property Type="String" Name="Name_material" Nullable="false" MaxLength="40" />
+    <Property Type="Int32" Name="Quantity" Nullable="false" />
+    <Property Type="Int32" Name="Price" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="Card_work">
+    <Key>
+      <PropertyRef Name="Key_card" />
+    </Key>
+    <Property Name="Key_card" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Num_product" Type="Int32" Nullable="false" />
+    <Property Name="Code_post" Type="Int32" Nullable="false" />
+    <Property Name="Num_operation" Type="Int32" Nullable="false" />
+    <Property Name="Order_operation" Type="Int32" Nullable="false" />
+    <Property Name="Time_spent" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Nomencloture" Relationship="Practik1282Model.FK_Card_work_Nomencloture" FromRole="Card_work" ToRole="Nomencloture" />
+    <NavigationProperty Name="Operation" Relationship="Practik1282Model.FK_Card_work_Operation" FromRole="Card_work" ToRole="Operation" />
+    <NavigationProperty Name="Post" Relationship="Practik1282Model.FK_Card_work_Post" FromRole="Card_work" ToRole="Post" />
+  </EntityType>
+  <EntityType Name="Consumer">
+    <Key>
+      <PropertyRef Name="Num_consumer" />
+    </Key>
+    <Property Name="Num_consumer" Type="Int32" Nullable="false" />
+    <Property Name="Num_workshop" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Workshop" Relationship="Practik1282Model.FK_Consumer_Workshop" FromRole="Consumer" ToRole="Workshop" />
+  </EntityType>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="Code_empl" />
+    </Key>
+    <Property Name="Code_empl" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Surname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Code_post" Type="Int32" Nullable="false" />
+    <Property Name="ID_user" Type="Int32" />
+    <NavigationProperty Name="Post" Relationship="Practik1282Model.FK_Employees_Post" FromRole="Employees" ToRole="Post" />
+    <NavigationProperty Name="User" Relationship="Practik1282Model.FK_Employees_User" FromRole="Employees" ToRole="User" />
+    <NavigationProperty Name="Passport_data" Relationship="Practik1282Model.FK_Passport_data_Employees" FromRole="Employees" ToRole="Passport_data" />
+  </EntityType>
+  <EntityType Name="Material">
+    <Key>
+      <PropertyRef Name="Num_material" />
+    </Key>
+    <Property Name="Num_material" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name_material" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="Code_unit" Type="Int32" Nullable="false" />
+    <Property Name="Num_groups" Type="Int32" Nullable="false" />
+    <Property Name="Diametr" Type="Double" Nullable="false" />
+    <Property Name="Thick" Type="Double" Nullable="false" />
+    <Property Name="Width" Type="Int32" Nullable="false" />
+    <Property Name="Length" Type="Int32" Nullable="false" />
+    <Property Name="Num_stamp" Type="Int32" />
+    <Property Name="Num_profile" Type="Int32" />
+    <NavigationProperty Name="Material_card" Relationship="Practik1282Model.FK_Material_card_Material" FromRole="Material" ToRole="Material_card" />
+    <NavigationProperty Name="Profile" Relationship="Practik1282Model.FK_Material_Profile" FromRole="Material" ToRole="Profile" />
+    <NavigationProperty Name="Rationing_groups" Relationship="Practik1282Model.FK_Material_Rationing_groups" FromRole="Material" ToRole="Rationing_groups" />
+    <NavigationProperty Name="Stamp" Relationship="Practik1282Model.FK_Material_Stamp" FromRole="Material" ToRole="Stamp" />
+    <NavigationProperty Name="OKEI" Relationship="Practik1282Model.FK_Material_Unit" FromRole="Material" ToRole="OKEI" />
+  </EntityType>
+  <EntityType Name="Material_card">
+    <Key>
+      <PropertyRef Name="Num_card" />
+    </Key>
+    <Property Name="Num_product" Type="Int32" Nullable="false" />
+    <Property Name="Num_material" Type="Int32" Nullable="false" />
+    <Property Name="Num_card" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Num_piece" Type="Int32" Nullable="false" />
+    <Property Name="Consumption_rate" Type="Double" Nullable="false" />
+    <Property Name="Provider_workshop" Type="Int32" />
+    <Property Name="Consumer_workshop" Type="Int32" />
+    <NavigationProperty Name="Material" Relationship="Practik1282Model.FK_Material_card_Material" FromRole="Material_card" ToRole="Material" />
+    <NavigationProperty Name="Nomencloture" Relationship="Practik1282Model.FK_Material_card_Nomencloture" FromRole="Material_card" ToRole="Nomencloture" />
+    <NavigationProperty Name="Work_piece" Relationship="Practik1282Model.FK_Material_card_Work_piece" FromRole="Material_card" ToRole="Work_piece" />
+    <NavigationProperty Name="Workshop" Relationship="Practik1282Model.FK_Material_card_Workshop1" FromRole="Material_card" ToRole="Workshop" />
+    <NavigationProperty Name="Workshop1" Relationship="Practik1282Model.FK_Material_card_Workshop2" FromRole="Material_card" ToRole="Workshop" />
+  </EntityType>
+  <EntityType Name="Nomencloture">
+    <Key>
+      <PropertyRef Name="Num_product" />
+    </Key>
+    <Property Name="Num_product" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name_product" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Decimal_num" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Card_work" Relationship="Practik1282Model.FK_Card_work_Nomencloture" FromRole="Nomencloture" ToRole="Card_work" />
+    <NavigationProperty Name="Material_card" Relationship="Practik1282Model.FK_Material_card_Nomencloture" FromRole="Nomencloture" ToRole="Material_card" />
+    <NavigationProperty Name="Structure" Relationship="Practik1282Model.FK_Structure_Nomencloture" FromRole="Nomencloture" ToRole="Structure" />
+    <NavigationProperty Name="Structure1" Relationship="Practik1282Model.FK_Structure_Nomencloture1" FromRole="Nomencloture" ToRole="Structure" />
+  </EntityType>
+  <EntityType Name="OKEI">
+    <Key>
+      <PropertyRef Name="Code_unit" />
+    </Key>
+    <Property Name="Code_unit" Type="Int32" Nullable="false" />
+    <Property Name="Name_unit" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Material" Relationship="Practik1282Model.FK_Material_Unit" FromRole="OKEI" ToRole="Material" />
+  </EntityType>
+  <EntityType Name="Operation">
+    <Key>
+      <PropertyRef Name="Num_operation" />
+    </Key>
+    <Property Name="Num_operation" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name_operation" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Card_work" Relationship="Practik1282Model.FK_Card_work_Operation" FromRole="Operation" ToRole="Card_work" />
+  </EntityType>
+  <EntityType Name="Passport_data">
+    <Key>
+      <PropertyRef Name="Serial" />
+      <PropertyRef Name="Number" />
+    </Key>
+    <Property Name="Code_empl" Type="Int32" Nullable="false" />
+    <Property Name="Serial" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="Number" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="Date_birth" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Employees" Relationship="Practik1282Model.FK_Passport_data_Employees" FromRole="Passport_data" ToRole="Employees" />
+  </EntityType>
+  <EntityType Name="Post">
+    <Key>
+      <PropertyRef Name="Code_post" />
+    </Key>
+    <Property Name="Code_post" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name_post" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Salary_per_hours" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="Card_work" Relationship="Practik1282Model.FK_Card_work_Post" FromRole="Post" ToRole="Card_work" />
+    <NavigationProperty Name="Employees" Relationship="Practik1282Model.FK_Employees_Post" FromRole="Post" ToRole="Employees" />
+  </EntityType>
+  <EntityType Name="Profile">
+    <Key>
+      <PropertyRef Name="Num_profile" />
+    </Key>
+    <Property Name="Num_profile" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Material" Relationship="Practik1282Model.FK_Material_Profile" FromRole="Profile" ToRole="Material" />
+  </EntityType>
+  <EntityType Name="Provider">
+    <Key>
+      <PropertyRef Name="Num_provider" />
+    </Key>
+    <Property Name="Num_provider" Type="Int32" Nullable="false" />
+    <Property Name="Num_workshop" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Workshop" Relationship="Practik1282Model.FK_Provider_Workshop" FromRole="Provider" ToRole="Workshop" />
+  </EntityType>
+  <EntityType Name="Rationing_groups">
+    <Key>
+      <PropertyRef Name="Num_groups" />
+    </Key>
+    <Property Name="Num_groups" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Material" Relationship="Practik1282Model.FK_Material_Rationing_groups" FromRole="Rationing_groups" ToRole="Material" />
+  </EntityType>
+  <EntityType Name="Stamp">
+    <Key>
+      <PropertyRef Name="Num_stamp" />
+    </Key>
+    <Property Name="Num_stamp" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Material" Relationship="Practik1282Model.FK_Material_Stamp" FromRole="Stamp" ToRole="Material" />
+  </EntityType>
+  <EntityType Name="Structure">
+    <Key>
+      <PropertyRef Name="Num_product_where" />
+      <PropertyRef Name="Num_product_what" />
+    </Key>
+    <Property Name="Num_product_where" Type="Int32" Nullable="false" />
+    <Property Name="Num_product_what" Type="Int32" Nullable="false" />
+    <Property Name="Quantity_product" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Nomencloture" Relationship="Practik1282Model.FK_Structure_Nomencloture" FromRole="Structure" ToRole="Nomencloture" />
+    <NavigationProperty Name="Nomencloture1" Relationship="Practik1282Model.FK_Structure_Nomencloture1" FromRole="Structure" ToRole="Nomencloture" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID_user" />
+    </Key>
+    <Property Name="ID_user" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Employees" Relationship="Practik1282Model.FK_Employees_User" FromRole="User" ToRole="Employees" />
+  </EntityType>
+  <EntityType Name="Work_piece">
+    <Key>
+      <PropertyRef Name="Num_piece" />
+    </Key>
+    <Property Name="Num_piece" Type="Int32" Nullable="false" />
+    <Property Name="Weight" Type="Double" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Material_card" Relationship="Practik1282Model.FK_Material_card_Work_piece" FromRole="Work_piece" ToRole="Material_card" />
+  </EntityType>
+  <EntityType Name="Workshop">
+    <Key>
+      <PropertyRef Name="Num_workshop" />
+    </Key>
+    <Property Name="Num_workshop" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Consumer" Relationship="Practik1282Model.FK_Consumer_Workshop" FromRole="Workshop" ToRole="Consumer" />
+    <NavigationProperty Name="Material_card" Relationship="Practik1282Model.FK_Material_card_Workshop1" FromRole="Workshop" ToRole="Material_card" />
+    <NavigationProperty Name="Material_card1" Relationship="Practik1282Model.FK_Material_card_Workshop2" FromRole="Workshop" ToRole="Material_card" />
+    <NavigationProperty Name="Provider" Relationship="Practik1282Model.FK_Provider_Workshop" FromRole="Workshop" ToRole="Provider" />
+  </EntityType>
+  <Association Name="FK_Card_work_Nomencloture">
+    <End Type="Practik1282Model.Nomencloture" Role="Nomencloture" Multiplicity="1" />
+    <End Type="Practik1282Model.Card_work" Role="Card_work" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nomencloture">
+        <PropertyRef Name="Num_product" />
+      </Principal>
+      <Dependent Role="Card_work">
+        <PropertyRef Name="Num_product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Card_work_Operation">
+    <End Type="Practik1282Model.Operation" Role="Operation" Multiplicity="1" />
+    <End Type="Practik1282Model.Card_work" Role="Card_work" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Operation">
+        <PropertyRef Name="Num_operation" />
+      </Principal>
+      <Dependent Role="Card_work">
+        <PropertyRef Name="Num_operation" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Card_work_Post">
+    <End Type="Practik1282Model.Post" Role="Post" Multiplicity="1" />
+    <End Type="Practik1282Model.Card_work" Role="Card_work" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Post">
+        <PropertyRef Name="Code_post" />
+      </Principal>
+      <Dependent Role="Card_work">
+        <PropertyRef Name="Code_post" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Consumer_Workshop">
+    <End Type="Practik1282Model.Workshop" Role="Workshop" Multiplicity="0..1" />
+    <End Type="Practik1282Model.Consumer" Role="Consumer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workshop">
+        <PropertyRef Name="Num_workshop" />
+      </Principal>
+      <Dependent Role="Consumer">
+        <PropertyRef Name="Num_workshop" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employees_Post">
+    <End Type="Practik1282Model.Post" Role="Post" Multiplicity="1" />
+    <End Type="Practik1282Model.Employees" Role="Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Post">
+        <PropertyRef Name="Code_post" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="Code_post" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employees_User">
+    <End Type="Practik1282Model.User" Role="User" Multiplicity="0..1" />
+    <End Type="Practik1282Model.Employees" Role="Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID_user" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="ID_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Passport_data_Employees">
+    <End Type="Practik1282Model.Employees" Role="Employees" Multiplicity="1" />
+    <End Type="Practik1282Model.Passport_data" Role="Passport_data" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="Code_empl" />
+      </Principal>
+      <Dependent Role="Passport_data">
+        <PropertyRef Name="Code_empl" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Material_card_Material">
+    <End Type="Practik1282Model.Material" Role="Material" Multiplicity="1" />
+    <End Type="Practik1282Model.Material_card" Role="Material_card" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Material">
+        <PropertyRef Name="Num_material" />
+      </Principal>
+      <Dependent Role="Material_card">
+        <PropertyRef Name="Num_material" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Material_Profile">
+    <End Type="Practik1282Model.Profile" Role="Profile" Multiplicity="0..1" />
+    <End Type="Practik1282Model.Material" Role="Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profile">
+        <PropertyRef Name="Num_profile" />
+      </Principal>
+      <Dependent Role="Material">
+        <PropertyRef Name="Num_profile" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Material_Rationing_groups">
+    <End Type="Practik1282Model.Rationing_groups" Role="Rationing_groups" Multiplicity="1" />
+    <End Type="Practik1282Model.Material" Role="Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rationing_groups">
+        <PropertyRef Name="Num_groups" />
+      </Principal>
+      <Dependent Role="Material">
+        <PropertyRef Name="Num_groups" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Material_Stamp">
+    <End Type="Practik1282Model.Stamp" Role="Stamp" Multiplicity="0..1" />
+    <End Type="Practik1282Model.Material" Role="Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stamp">
+        <PropertyRef Name="Num_stamp" />
+      </Principal>
+      <Dependent Role="Material">
+        <PropertyRef Name="Num_stamp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Material_Unit">
+    <End Type="Practik1282Model.OKEI" Role="OKEI" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="Practik1282Model.Material" Role="Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OKEI">
+        <PropertyRef Name="Code_unit" />
+      </Principal>
+      <Dependent Role="Material">
+        <PropertyRef Name="Code_unit" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Material_card_Nomencloture">
+    <End Type="Practik1282Model.Nomencloture" Role="Nomencloture" Multiplicity="1" />
+    <End Type="Practik1282Model.Material_card" Role="Material_card" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nomencloture">
+        <PropertyRef Name="Num_product" />
+      </Principal>
+      <Dependent Role="Material_card">
+        <PropertyRef Name="Num_product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Material_card_Work_piece">
+    <End Type="Practik1282Model.Work_piece" Role="Work_piece" Multiplicity="1" />
+    <End Type="Practik1282Model.Material_card" Role="Material_card" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Work_piece">
+        <PropertyRef Name="Num_piece" />
+      </Principal>
+      <Dependent Role="Material_card">
+        <PropertyRef Name="Num_piece" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Material_card_Workshop1">
+    <End Type="Practik1282Model.Workshop" Role="Workshop" Multiplicity="0..1" />
+    <End Type="Practik1282Model.Material_card" Role="Material_card" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workshop">
+        <PropertyRef Name="Num_workshop" />
+      </Principal>
+      <Dependent Role="Material_card">
+        <PropertyRef Name="Provider_workshop" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Material_card_Workshop2">
+    <End Type="Practik1282Model.Workshop" Role="Workshop" Multiplicity="0..1" />
+    <End Type="Practik1282Model.Material_card" Role="Material_card" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workshop">
+        <PropertyRef Name="Num_workshop" />
+      </Principal>
+      <Dependent Role="Material_card">
+        <PropertyRef Name="Consumer_workshop" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Structure_Nomencloture">
+    <End Type="Practik1282Model.Nomencloture" Role="Nomencloture" Multiplicity="1" />
+    <End Type="Practik1282Model.Structure" Role="Structure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nomencloture">
+        <PropertyRef Name="Num_product" />
+      </Principal>
+      <Dependent Role="Structure">
+        <PropertyRef Name="Num_product_where" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Structure_Nomencloture1">
+    <End Type="Practik1282Model.Nomencloture" Role="Nomencloture" Multiplicity="1" />
+    <End Type="Practik1282Model.Structure" Role="Structure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nomencloture">
+        <PropertyRef Name="Num_product" />
+      </Principal>
+      <Dependent Role="Structure">
+        <PropertyRef Name="Num_product_what" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Provider_Workshop">
+    <End Type="Practik1282Model.Workshop" Role="Workshop" Multiplicity="1" />
+    <End Type="Practik1282Model.Provider" Role="Provider" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workshop">
+        <PropertyRef Name="Num_workshop" />
+      </Principal>
+      <Dependent Role="Provider">
+        <PropertyRef Name="Num_workshop" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

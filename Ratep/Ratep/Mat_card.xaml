@@ -1,0 +1,49 @@
+﻿<Window x:Class="Ratep.Mat_card"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ratep"
+        mc:Ignorable="d"
+       Height="432" Width="700" WindowStyle="SingleBorderWindow" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid Margin="0,0,0,-6">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="72"/>
+            <RowDefinition Height="259"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF97E0C2" Offset="0"/>
+                <GradientStop Color="#FFB1AEE2" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <TextBlock Text="Материальная карта" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24" Width="262" Height="72"/>
+        <DataGrid x:Name="dgMat_card"  Grid.Row="1" AutoGenerateColumns="False" RenderTransformOrigin="0.502,0.517" CanUserAddRows="False">
+            <DataGrid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF97E0C2" Offset="0"/>
+                    <GradientStop Color="#FFB1AEE2" Offset="1"/>
+                </LinearGradientBrush>
+            </DataGrid.Background>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Материал" Binding="{Binding Material.Name_material }" Width="*"/>
+                <DataGridTextColumn Header="Изделие" Binding="{Binding Nomencloture.Name_product}" Width="*"/>
+                <DataGridTextColumn Header="Цех поставщика" Binding="{Binding Workshop.Name}" Width="*"/>
+                <DataGridTextColumn Header="Цех потребителя" Binding="{Binding Workshop1.Name}" Width="*"/>
+                <DataGridTextColumn Header="Размер заготовки" Binding="{Binding Work_piece.Weight}" Width="*"/>
+                <DataGridTextColumn Header="Количество заготовок" Binding="{Binding Work_piece.Quantity}" Width="*"/>
+                <DataGridTextColumn Header="Норма расхода" Binding="{Binding Consumption_rate}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="Delite"  Margin="66,10,514,31"  Content="Удалить" Grid.Row="2" RenderTransformOrigin="-0.838,1.661" Background="#FF5F799C" Click="Delite_Click"/>
+        <Button x:Name="Update" Margin="514,9,66,31"  Content="Изменить"  Grid.Row="2" Background="#FF5F799C" Click="Update_Click"/>
+        <Button x:Name="Add" Margin="298,9,282,31"  Content="Добавить"  Grid.Row="2" RenderTransformOrigin="0.064,0.566" Background="#FF5F799C" Click="Add_Click"/>
+        <TextBox  x:Name="nomensh" HorizontalAlignment="Left" Margin="366,35,0,13" TextWrapping="Wrap" Text="Поиск по изделию..." Foreground="Gray"  Width="268"  GotFocus="nomensh_GotFocus"  LostFocus="nomensh_LostFocus" TextChanged="nomensh_TextChanged"/>
+        <TextBox x:Name="matersh"  HorizontalAlignment="Left" Height="24" Margin="10,35,0,0" TextWrapping="Wrap" Text="Поиск по материалу..." Foreground="Gray" VerticalAlignment="Top" Width="275" GotFocus="matersh_GotFocus"  LostFocus="matersh_LostFocus" TextChanged="matersh_TextChanged"/>
+        <Button x:Name="btnBack"  HorizontalAlignment="Left" Margin="634,0,0,0" VerticalAlignment="Top" Width="56" Background="#FF98DDC4" BorderBrush="#FF98DDC4" Click="btnBack_Click" Height="38">
+            <Image Source="back.png" Width="53" Height="38" RenderTransformOrigin="0.28,1.9"/>
+        </Button>
+    </Grid>
+</Window>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ee4be72252fc4b4e850ec7dbff092333" Name="Diagram1">
+        <EntityTypeShape EntityType="Practik1282Model.Card_work" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Practik1282Model.Consumer" Width="1.5" PointX="6" PointY="26" IsExpanded="true" />
+        <EntityTypeShape EntityType="Practik1282Model.Employees" Width="1.5" PointX="3" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Practik1282Model.Material" Width="1.5" PointX="3.75" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Practik1282Model.Material_card" Width="1.5" PointX="6" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Practik1282Model.Nomencloture" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Practik1282Model.OKEI" Width="1.5" PointX="1.5" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Practik1282Model.Operation" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Practik1282Model.Passport_data" Width="1.5" PointX="5.25" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Practik1282Model.Post" Width="1.5" PointX="0.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Practik1282Model.Profile" Width="1.5" PointX="1.5" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Practik1282Model.Provider" Width="1.5" PointX="6" PointY="28.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Practik1282Model.Rationing_groups" Width="1.5" PointX="1.5" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Practik1282Model.Stamp" Width="1.5" PointX="1.5" PointY="24.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Practik1282Model.Structure" Width="1.5" PointX="3" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="Practik1282Model.sysdiagrams" Width="1.5" PointX="2.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Practik1282Model.User" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Practik1282Model.Work_piece" Width="1.5" PointX="3.75" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Practik1282Model.Workshop" Width="1.5" PointX="3.75" PointY="27" IsExpanded="true" />
+        <AssociationConnector Association="Practik1282Model.FK_Card_work_Nomencloture" ManuallyRouted="false" />
+        <AssociationConnector Association="Practik1282Model.FK_Card_work_Operation" ManuallyRouted="false" />
+        <AssociationConnector Association="Practik1282Model.FK_Card_work_Post" ManuallyRouted="false" />
+        <AssociationConnector Association="Practik1282Model.FK_Consumer_Workshop" ManuallyRouted="false" />
+        <AssociationConnector Association="Practik1282Model.FK_Employees_Post" ManuallyRouted="false" />
+        <AssociationConnector Association="Practik1282Model.FK_Employees_User" ManuallyRouted="false" />
+        <AssociationConnector Association="Practik1282Model.FK_Passport_data_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="Practik1282Model.FK_Material_card_Material" ManuallyRouted="false" />
+        <AssociationConnector Association="Practik1282Model.FK_Material_Profile" ManuallyRouted="false" />
+        <AssociationConnector Association="Practik1282Model.FK_Material_Rationing_groups" ManuallyRouted="false" />
+        <AssociationConnector Association="Practik1282Model.FK_Material_Stamp" ManuallyRouted="false" />
+        <AssociationConnector Association="Practik1282Model.FK_Material_Unit" ManuallyRouted="false" />
+        <AssociationConnector Association="Practik1282Model.FK_Material_card_Nomencloture" ManuallyRouted="false" />
+        <AssociationConnector Association="Practik1282Model.FK_Material_card_Work_piece" ManuallyRouted="false" />
+        <AssociationConnector Association="Practik1282Model.FK_Material_card_Workshop1" ManuallyRouted="false" />
+        <AssociationConnector Association="Practik1282Model.FK_Material_card_Workshop2" ManuallyRouted="false" />
+        <AssociationConnector Association="Practik1282Model.FK_Structure_Nomencloture" ManuallyRouted="false" />
+        <AssociationConnector Association="Practik1282Model.FK_Structure_Nomencloture1" ManuallyRouted="false" />
+        <AssociationConnector Association="Practik1282Model.FK_Provider_Workshop" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

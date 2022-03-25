@@ -1,0 +1,390 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{598A2667-A338-43E9-96A8-4DEBE658DCEE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Ratep</RootNamespace>
+    <AssemblyName>Ratep</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Tools.Excel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Tools.Word, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="BD.cs" />
+    <Compile Include="BuildProcess_Result.cs">
+      <DependentUpon>Practik1282.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Card_work.cs">
+      <DependentUpon>Practik1282.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cipher.cs" />
+    <Compile Include="Consumer.cs">
+      <DependentUpon>Practik1282.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Employees.cs">
+      <DependentUpon>Practik1282.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FA_Sum_Time_Spent_Product_Result.cs">
+      <DependentUpon>Practik1282.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FA_Sum_Time_Spent_Result.cs">
+      <DependentUpon>Practik1282.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetEmployees_Result.cs">
+      <DependentUpon>Practik1282.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetFullConstructionData_Result.cs">
+      <DependentUpon>Practik1282.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Helps\HelpAvtoreg.xaml.cs">
+      <DependentUpon>HelpAvtoreg.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helps\Help.xaml.cs">
+      <DependentUpon>Help.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helps\HelpAddMater.xaml.cs">
+      <DependentUpon>HelpAddMater.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helps\HelpAddMat_card.xaml.cs">
+      <DependentUpon>HelpAddMat_card.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helps\HelpMater.xaml.cs">
+      <DependentUpon>HelpMater.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helps\HelpMat_card.xaml.cs">
+      <DependentUpon>HelpMat_card.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helps\HelpMenu.xaml.cs">
+      <DependentUpon>HelpMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helps\HelpProg.xaml.cs">
+      <DependentUpon>HelpProg.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helps\HelpReport.xaml.cs">
+      <DependentUpon>HelpReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Material.cs">
+      <DependentUpon>Practik1282.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Material_card.cs">
+      <DependentUpon>Practik1282.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Nomencloture.cs">
+      <DependentUpon>Practik1282.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OKEI.cs">
+      <DependentUpon>Practik1282.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Operation.cs">
+      <DependentUpon>Practik1282.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OProg.xaml.cs">
+      <DependentUpon>OProg.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Passport_data.cs">
+      <DependentUpon>Practik1282.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Post.cs">
+      <DependentUpon>Practik1282.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Practik1282.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Practik1282.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Practik1282.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Practik1282.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Practik1282.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Practik1282.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Profile.cs">
+      <DependentUpon>Practik1282.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Provider.cs">
+      <DependentUpon>Practik1282.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Quantity_proc1_Result.cs">
+      <DependentUpon>Practik1282.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Rationing_groups.cs">
+      <DependentUpon>Practik1282.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Registration.xaml.cs">
+      <DependentUpon>Registration.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Report.xaml.cs">
+      <DependentUpon>Report.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Stamp.cs">
+      <DependentUpon>Practik1282.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Structure.cs">
+      <DependentUpon>Practik1282.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>Practik1282.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Test.cs" />
+    <Compile Include="User.cs">
+      <DependentUpon>Practik1282.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Workshop.cs">
+      <DependentUpon>Practik1282.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Work_piece.cs">
+      <DependentUpon>Practik1282.tt</DependentUpon>
+    </Compile>
+    <Page Include="AddMat_card.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Add_material.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Helps\HelpAvtoreg.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Helps\Help.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Helps\HelpAddMater.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Helps\HelpAddMat_card.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Helps\HelpMater.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Helps\HelpMat_card.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Helps\HelpMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Helps\HelpProg.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Helps\HelpReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MaimMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="AddMat_card.xaml.cs">
+      <DependentUpon>AddMat_card.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Add_material.xaml.cs">
+      <DependentUpon>Add_material.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MaimMenu.xaml.cs">
+      <DependentUpon>MaimMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="MaterialWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Mat_card.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OProg.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Registration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Report.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MaterialWindow.xaml.cs">
+      <DependentUpon>MaterialWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Mat_card.xaml.cs">
+      <DependentUpon>Mat_card.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <EntityDeploy Include="Practik1282.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Practik1282.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Practik1282.edmx.diagram">
+      <DependentUpon>Practik1282.edmx</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rat.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="por.png" />
+    <Resource Include="user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ex.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="W.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Helps\HelpAddMater.png" />
+    <Resource Include="Helps\HelpAddMat_card.png" />
+    <Resource Include="Helps\HelpAvtoreg.png" />
+    <Resource Include="Helps\HelpMater.png" />
+    <Resource Include="Helps\HelpMat_card.png" />
+    <Resource Include="Helps\HelpMenu.png" />
+    <Resource Include="Helps\HelpOProg.png" />
+    <Resource Include="Helps\HelpRaport.png" />
+    <Resource Include="help.png" />
+    <Resource Include="inf.png" />
+    <Resource Include="Helps\strelkaVlev.png" />
+    <Resource Include="Helps\strelkaVpr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Practik1282.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Practik1282.edmx</DependentUpon>
+      <LastGenOutput>Practik1282.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Practik1282.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Practik1282.edmx</DependentUpon>
+      <LastGenOutput>Practik1282.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

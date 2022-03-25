@@ -1,0 +1,738 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище Practik1282Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Practik1282.dbo.Card_work" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="Card_work">
+    <Key>
+      <PropertyRef Name="Num_product" />
+      <PropertyRef Name="Code_post" />
+      <PropertyRef Name="Num_operation" />
+      <PropertyRef Name="Order_operation" />
+      <PropertyRef Name="Time_spent" />
+    </Key>
+    <Property Name="Num_product" Type="int" Nullable="false" />
+    <Property Name="Code_post" Type="int" Nullable="false" />
+    <Property Name="Num_operation" Type="int" Nullable="false" />
+    <Property Name="Order_operation" Type="int" Nullable="false" />
+    <Property Name="Time_spent" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="Code_empl" />
+    </Key>
+    <Property Name="Code_empl" Type="int" Nullable="false" />
+    <Property Name="Surname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MiddleName" Type="varchar" MaxLength="50" />
+    <Property Name="Code_post" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Material">
+    <Key>
+      <PropertyRef Name="Num_material" />
+    </Key>
+    <Property Name="Num_material" Type="int" Nullable="false" />
+    <Property Name="Name_material" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Code_unit" Type="int" Nullable="false" />
+    <Property Name="Price" Type="int" />
+  </EntityType>
+  <EntityType Name="Material_card">
+    <Key>
+      <PropertyRef Name="Num_card" />
+    </Key>
+    <Property Name="Num_product" Type="int" Nullable="false" />
+    <Property Name="Num_material" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="Num_card" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Nomencloture">
+    <Key>
+      <PropertyRef Name="Num_product" />
+    </Key>
+    <Property Name="Num_product" Type="int" Nullable="false" />
+    <Property Name="Name_product" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Operation">
+    <Key>
+      <PropertyRef Name="Num_operation" />
+    </Key>
+    <Property Name="Num_operation" Type="int" Nullable="false" />
+    <Property Name="Name_oeration" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Passport_data">
+    <Key>
+      <PropertyRef Name="Serial" />
+      <PropertyRef Name="Number" />
+    </Key>
+    <Property Name="Code_empl" Type="int" Nullable="false" />
+    <Property Name="Serial" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="Number" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="Date_birth" Type="date" Nullable="false" />
+    <Property Name="Address" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Post">
+    <Key>
+      <PropertyRef Name="Code_post" />
+    </Key>
+    <Property Name="Code_post" Type="int" Nullable="false" />
+    <Property Name="Name_post" Type="varchar" MaxLength="30" />
+    <Property Name="Salary_per_hours" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Structure">
+    <Key>
+      <PropertyRef Name="Num_product_where" />
+      <PropertyRef Name="Num_product_what" />
+    </Key>
+    <Property Name="Num_product_where" Type="int" Nullable="false" />
+    <Property Name="Num_product_what" Type="int" Nullable="false" />
+    <Property Name="Quantity_product" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Unit">
+    <Key>
+      <PropertyRef Name="Code_unit" />
+    </Key>
+    <Property Name="Code_unit" Type="int" Nullable="false" />
+    <Property Name="Name_unit" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Login" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Practik1282.dbo.FA_Card_work" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="FA_Card_work">
+    <Key>
+      <PropertyRef Name="Num_product" />
+      <PropertyRef Name="Code_post" />
+      <PropertyRef Name="Num_operation" />
+      <PropertyRef Name="Order_operation" />
+      <PropertyRef Name="Time_spent" />
+    </Key>
+    <Property Name="Num_product" Type="int" Nullable="false" />
+    <Property Name="Code_post" Type="int" Nullable="false" />
+    <Property Name="Num_operation" Type="int" Nullable="false" />
+    <Property Name="Order_operation" Type="int" Nullable="false" />
+    <Property Name="Time_spent" Type="time" Precision="7" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Practik1282.dbo.FA_Employees" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="FA_Employees">
+    <Key>
+      <PropertyRef Name="Code_empl" />
+      <PropertyRef Name="Surname" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Code_post" />
+    </Key>
+    <Property Name="Code_empl" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Surname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MiddleName" Type="varchar" MaxLength="50" />
+    <Property Name="Code_post" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Practik1282.dbo.FA_Mat_card" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="FA_Mat_card">
+    <Key>
+      <PropertyRef Name="Num_product" />
+      <PropertyRef Name="Name_product" />
+      <PropertyRef Name="Num_material" />
+      <PropertyRef Name="Name_material" />
+      <PropertyRef Name="Quantity" />
+      <PropertyRef Name="Num_card" />
+    </Key>
+    <Property Name="Num_product" Type="int" Nullable="false" />
+    <Property Name="Name_product" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Num_material" Type="int" Nullable="false" />
+    <Property Name="Name_material" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="Name_unit" Type="varchar" MaxLength="10" />
+    <Property Name="Num_card" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Practik1282.dbo.FA_Mater" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="FA_Mater">
+    <Key>
+      <PropertyRef Name="Num_material" />
+      <PropertyRef Name="Name_material" />
+      <PropertyRef Name="Code_unit" />
+    </Key>
+    <Property Name="Num_material" Type="int" Nullable="false" />
+    <Property Name="Name_material" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Price" Type="int" />
+    <Property Name="Code_unit" Type="int" Nullable="false" />
+    <Property Name="Name_unit" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Practik1282.dbo.FA_Material" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="FA_Material">
+    <Key>
+      <PropertyRef Name="Num_material" />
+      <PropertyRef Name="Name_material" />
+      <PropertyRef Name="Code_unit" />
+    </Key>
+    <Property Name="Num_material" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name_material" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Code_unit" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Practik1282.dbo.FA_Material_card" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="FA_Material_card">
+    <Key>
+      <PropertyRef Name="Num_product" />
+      <PropertyRef Name="Num_material" />
+      <PropertyRef Name="Quantity" />
+    </Key>
+    <Property Name="Num_product" Type="int" Nullable="false" />
+    <Property Name="Num_material" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Practik1282.dbo.FA_Nomencloture" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="FA_Nomencloture">
+    <Key>
+      <PropertyRef Name="Num_product" />
+      <PropertyRef Name="Name_product" />
+    </Key>
+    <Property Name="Num_product" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name_product" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Practik1282.dbo.FA_Operation" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="FA_Operation">
+    <Key>
+      <PropertyRef Name="Num_operation" />
+      <PropertyRef Name="Name_oeration" />
+    </Key>
+    <Property Name="Num_operation" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name_oeration" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Practik1282.dbo.FA_Passport_data" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="FA_Passport_data">
+    <Key>
+      <PropertyRef Name="Code_empl" />
+      <PropertyRef Name="Serial" />
+      <PropertyRef Name="Number" />
+      <PropertyRef Name="Date_birth" />
+      <PropertyRef Name="Address" />
+    </Key>
+    <Property Name="Code_empl" Type="int" Nullable="false" />
+    <Property Name="Serial" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="Number" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="Date_birth" Type="date" Nullable="false" />
+    <Property Name="Address" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Practik1282.dbo.FA_Post" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="FA_Post">
+    <Key>
+      <PropertyRef Name="Code_post" />
+      <PropertyRef Name="Salary_per_hours" />
+    </Key>
+    <Property Name="Code_post" Type="int" Nullable="false" />
+    <Property Name="Name_post" Type="varchar" MaxLength="30" />
+    <Property Name="Salary_per_hours" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Practik1282.dbo.FA_StructProd" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="FA_StructProd">
+    <Key>
+      <PropertyRef Name="Num_product_where" />
+      <PropertyRef Name="Name_product" />
+    </Key>
+    <Property Name="Num_product_where" Type="int" Nullable="false" />
+    <Property Name="Name_product" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Practik1282.dbo.FA_Structure" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="FA_Structure">
+    <Key>
+      <PropertyRef Name="Num_product_where" />
+      <PropertyRef Name="Num_product_what" />
+      <PropertyRef Name="Quantity_product" />
+    </Key>
+    <Property Name="Num_product_where" Type="int" Nullable="false" />
+    <Property Name="Num_product_what" Type="int" Nullable="false" />
+    <Property Name="Quantity_product" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Practik1282.dbo.FA_structure_name" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="FA_structure_name">
+    <Key>
+      <PropertyRef Name="Num_product_where" />
+      <PropertyRef Name="Name_product_where" />
+      <PropertyRef Name="Num_product_what" />
+      <PropertyRef Name="Name_product_what" />
+      <PropertyRef Name="Quantity_product" />
+    </Key>
+    <Property Name="Num_product_where" Type="int" Nullable="false" />
+    <Property Name="Name_product_where" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Num_product_what" Type="int" Nullable="false" />
+    <Property Name="Name_product_what" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Quantity_product" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Practik1282.dbo.FA_Unit" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="FA_Unit">
+    <Key>
+      <PropertyRef Name="Code_unit" />
+    </Key>
+    <Property Name="Code_unit" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name_unit" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <Association Name="FK_Card_work_Nomencloture">
+    <End Role="Nomencloture" Type="Self.Nomencloture" Multiplicity="1" />
+    <End Role="Card_work" Type="Self.Card_work" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nomencloture">
+        <PropertyRef Name="Num_product" />
+      </Principal>
+      <Dependent Role="Card_work">
+        <PropertyRef Name="Num_product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Card_work_Operation">
+    <End Role="Operation" Type="Self.Operation" Multiplicity="1" />
+    <End Role="Card_work" Type="Self.Card_work" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Operation">
+        <PropertyRef Name="Num_operation" />
+      </Principal>
+      <Dependent Role="Card_work">
+        <PropertyRef Name="Num_operation" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Card_work_Post">
+    <End Role="Post" Type="Self.Post" Multiplicity="1" />
+    <End Role="Card_work" Type="Self.Card_work" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Post">
+        <PropertyRef Name="Code_post" />
+      </Principal>
+      <Dependent Role="Card_work">
+        <PropertyRef Name="Code_post" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employees_Post">
+    <End Role="Post" Type="Self.Post" Multiplicity="1" />
+    <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Post">
+        <PropertyRef Name="Code_post" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="Code_post" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Material_card_Material">
+    <End Role="Material" Type="Self.Material" Multiplicity="1" />
+    <End Role="Material_card" Type="Self.Material_card" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Material">
+        <PropertyRef Name="Num_material" />
+      </Principal>
+      <Dependent Role="Material_card">
+        <PropertyRef Name="Num_material" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Material_card_Nomencloture">
+    <End Role="Nomencloture" Type="Self.Nomencloture" Multiplicity="1" />
+    <End Role="Material_card" Type="Self.Material_card" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nomencloture">
+        <PropertyRef Name="Num_product" />
+      </Principal>
+      <Dependent Role="Material_card">
+        <PropertyRef Name="Num_product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Material_Unit">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="Material" Type="Self.Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Code_unit" />
+      </Principal>
+      <Dependent Role="Material">
+        <PropertyRef Name="Code_unit" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Passport_data_Employees">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+    <End Role="Passport_data" Type="Self.Passport_data" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="Code_empl" />
+      </Principal>
+      <Dependent Role="Passport_data">
+        <PropertyRef Name="Code_empl" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Structure_Nomencloture">
+    <End Role="Nomencloture" Type="Self.Nomencloture" Multiplicity="1" />
+    <End Role="Structure" Type="Self.Structure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nomencloture">
+        <PropertyRef Name="Num_product" />
+      </Principal>
+      <Dependent Role="Structure">
+        <PropertyRef Name="Num_product_where" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Structure_Nomencloture1">
+    <End Role="Nomencloture" Type="Self.Nomencloture" Multiplicity="1" />
+    <End Role="Structure" Type="Self.Structure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nomencloture">
+        <PropertyRef Name="Num_product" />
+      </Principal>
+      <Dependent Role="Structure">
+        <PropertyRef Name="Num_product_what" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="BuildProcess" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NomenclotureID" Type="int" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="Num_product" Type="int" Nullable="false" />
+          <Property Name="Code_post" Type="int" Nullable="false" />
+          <Property Name="Num_operation" Type="int" Nullable="false" />
+          <Property Name="Order_operation" Type="int" Nullable="false" />
+          <Property Name="Time_spent" Type="time" Precision="7" Nullable="false" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="DeleteMaterial" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NumMaterial" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteMaterial_card" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NumCard" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DT_Card_work" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Num_product" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DT_Employees" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Code_empl" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DT_Material" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Num_material" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DT_Nomencloture" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Num_product" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DT_Operation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Num_operation" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DT_Passport_data" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Serial" Type="varchar" Mode="In" />
+    <Parameter Name="Number" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="DT_Post" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Code_post" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DT_Structure" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Num_product_where" Type="int" Mode="In" />
+    <Parameter Name="Num_product_what" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DT_Unit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Code_unit" Type="int" Mode="In" />
+  </Function>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="InsertMaterial" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NameMaterial" Type="varchar" Mode="In" />
+    <Parameter Name="NumUnit" Type="int" Mode="In" />
+    <Parameter Name="Price" Type="int" Mode="In" />
+  </Function>
+  <Function Name="InsertMaterial_card" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Numproduct" Type="int" Mode="In" />
+    <Parameter Name="Nummaterial" Type="int" Mode="In" />
+    <Parameter Name="Quantity" Type="int" Mode="In" />
+  </Function>
+  <Function Name="IT_Material" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Num_material" Type="int" Mode="In" />
+    <Parameter Name="Name_material" Type="varchar" Mode="In" />
+    <Parameter Name="Code_unit" Type="int" Mode="In" />
+  </Function>
+  <Function Name="IT_Material_card" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Num_product" Type="int" Mode="In" />
+    <Parameter Name="Num_material" Type="int" Mode="In" />
+    <Parameter Name="Quantity" Type="int" Mode="In" />
+  </Function>
+  <Function Name="IT_Nomencloture" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Num_product" Type="int" Mode="In" />
+    <Parameter Name="Name_product" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="IT_Post" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Code_post" Type="int" Mode="In" />
+    <Parameter Name="Name_post" Type="varchar" Mode="In" />
+    <Parameter Name="Salary_per_hours" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="IT_Structure" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name_product_where" Type="int" Mode="In" />
+    <Parameter Name="Name_product_what" Type="int" Mode="In" />
+    <Parameter Name="Quantity_product" Type="int" Mode="In" />
+  </Function>
+  <Function Name="IT_Unit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Code_unit" Type="int" Mode="In" />
+    <Parameter Name="Name_unit" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="kol_time" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="product" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Quantity_proc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="num_product" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Quantity_proc1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="num_product" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SumTrud" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Num_product" Type="int" Mode="In" />
+    <Parameter Name="Quantity" Type="int" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="Code_post" Type="int" Nullable="false" />
+          <Property Name="Name_post" Type="varchar" MaxLength="30" />
+          <Property Name="Time_spent" Type="int" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="UpdateMaterial" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NumMaterial" Type="int" Mode="In" />
+    <Parameter Name="NameMaterial" Type="varchar" Mode="In" />
+    <Parameter Name="NumUnit" Type="int" Mode="In" />
+    <Parameter Name="Price" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UpdateMaterial_card" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NumMaterial" Type="int" Mode="In" />
+    <Parameter Name="Numproduct" Type="int" Mode="In" />
+    <Parameter Name="Numcard" Type="int" Mode="In" />
+    <Parameter Name="Quantity" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="Хранилище Practik1282ModelContainer">
+    <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Material" EntityType="Self.Material" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Material_card" EntityType="Self.Material_card" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Nomencloture" EntityType="Self.Nomencloture" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Operation" EntityType="Self.Operation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Passport_data" EntityType="Self.Passport_data" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Structure" EntityType="Self.Structure" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Unit" EntityType="Self.Unit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Card_work" EntityType="Self.Card_work" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Card_work].[Num_product] AS [Num_product], 
+    [Card_work].[Code_post] AS [Code_post], 
+    [Card_work].[Num_operation] AS [Num_operation], 
+    [Card_work].[Order_operation] AS [Order_operation], 
+    [Card_work].[Time_spent] AS [Time_spent]
+    FROM [dbo].[Card_work] AS [Card_work]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="FA_Card_work" EntityType="Self.FA_Card_work" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [FA_Card_work].[Num_product] AS [Num_product], 
+    [FA_Card_work].[Code_post] AS [Code_post], 
+    [FA_Card_work].[Num_operation] AS [Num_operation], 
+    [FA_Card_work].[Order_operation] AS [Order_operation], 
+    [FA_Card_work].[Time_spent] AS [Time_spent]
+    FROM [dbo].[FA_Card_work] AS [FA_Card_work]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="FA_Employees" EntityType="Self.FA_Employees" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [FA_Employees].[Code_empl] AS [Code_empl], 
+    [FA_Employees].[Surname] AS [Surname], 
+    [FA_Employees].[Name] AS [Name], 
+    [FA_Employees].[MiddleName] AS [MiddleName], 
+    [FA_Employees].[Code_post] AS [Code_post]
+    FROM [dbo].[FA_Employees] AS [FA_Employees]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="FA_Mat_card" EntityType="Self.FA_Mat_card" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [FA_Mat_card].[Num_product] AS [Num_product], 
+    [FA_Mat_card].[Name_product] AS [Name_product], 
+    [FA_Mat_card].[Num_material] AS [Num_material], 
+    [FA_Mat_card].[Name_material] AS [Name_material], 
+    [FA_Mat_card].[Quantity] AS [Quantity], 
+    [FA_Mat_card].[Name_unit] AS [Name_unit], 
+    [FA_Mat_card].[Num_card] AS [Num_card]
+    FROM [dbo].[FA_Mat_card] AS [FA_Mat_card]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="FA_Mater" EntityType="Self.FA_Mater" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [FA_Mater].[Num_material] AS [Num_material], 
+    [FA_Mater].[Name_material] AS [Name_material], 
+    [FA_Mater].[Price] AS [Price], 
+    [FA_Mater].[Code_unit] AS [Code_unit], 
+    [FA_Mater].[Name_unit] AS [Name_unit]
+    FROM [dbo].[FA_Mater] AS [FA_Mater]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="FA_Material" EntityType="Self.FA_Material" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [FA_Material].[Num_material] AS [Num_material], 
+    [FA_Material].[Name_material] AS [Name_material], 
+    [FA_Material].[Code_unit] AS [Code_unit]
+    FROM [dbo].[FA_Material] AS [FA_Material]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="FA_Material_card" EntityType="Self.FA_Material_card" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [FA_Material_card].[Num_product] AS [Num_product], 
+    [FA_Material_card].[Num_material] AS [Num_material], 
+    [FA_Material_card].[Quantity] AS [Quantity]
+    FROM [dbo].[FA_Material_card] AS [FA_Material_card]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="FA_Nomencloture" EntityType="Self.FA_Nomencloture" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [FA_Nomencloture].[Num_product] AS [Num_product], 
+    [FA_Nomencloture].[Name_product] AS [Name_product]
+    FROM [dbo].[FA_Nomencloture] AS [FA_Nomencloture]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="FA_Operation" EntityType="Self.FA_Operation" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [FA_Operation].[Num_operation] AS [Num_operation], 
+    [FA_Operation].[Name_oeration] AS [Name_oeration]
+    FROM [dbo].[FA_Operation] AS [FA_Operation]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="FA_Passport_data" EntityType="Self.FA_Passport_data" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [FA_Passport_data].[Code_empl] AS [Code_empl], 
+    [FA_Passport_data].[Serial] AS [Serial], 
+    [FA_Passport_data].[Number] AS [Number], 
+    [FA_Passport_data].[Date_birth] AS [Date_birth], 
+    [FA_Passport_data].[Address] AS [Address]
+    FROM [dbo].[FA_Passport_data] AS [FA_Passport_data]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="FA_Post" EntityType="Self.FA_Post" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [FA_Post].[Code_post] AS [Code_post], 
+    [FA_Post].[Name_post] AS [Name_post], 
+    [FA_Post].[Salary_per_hours] AS [Salary_per_hours]
+    FROM [dbo].[FA_Post] AS [FA_Post]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="FA_StructProd" EntityType="Self.FA_StructProd" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [FA_StructProd].[Num_product_where] AS [Num_product_where], 
+    [FA_StructProd].[Name_product] AS [Name_product]
+    FROM [dbo].[FA_StructProd] AS [FA_StructProd]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="FA_Structure" EntityType="Self.FA_Structure" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [FA_Structure].[Num_product_where] AS [Num_product_where], 
+    [FA_Structure].[Num_product_what] AS [Num_product_what], 
+    [FA_Structure].[Quantity_product] AS [Quantity_product]
+    FROM [dbo].[FA_Structure] AS [FA_Structure]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="FA_structure_name" EntityType="Self.FA_structure_name" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [FA_structure_name].[Num_product_where] AS [Num_product_where], 
+    [FA_structure_name].[Name_product_where] AS [Name_product_where], 
+    [FA_structure_name].[Num_product_what] AS [Num_product_what], 
+    [FA_structure_name].[Name_product_what] AS [Name_product_what], 
+    [FA_structure_name].[Quantity_product] AS [Quantity_product]
+    FROM [dbo].[FA_structure_name] AS [FA_structure_name]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="FA_Unit" EntityType="Self.FA_Unit" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [FA_Unit].[Code_unit] AS [Code_unit], 
+    [FA_Unit].[Name_unit] AS [Name_unit]
+    FROM [dbo].[FA_Unit] AS [FA_Unit]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Card_work_Nomencloture" Association="Self.FK_Card_work_Nomencloture">
+      <End Role="Nomencloture" EntitySet="Nomencloture" />
+      <End Role="Card_work" EntitySet="Card_work" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Card_work_Operation" Association="Self.FK_Card_work_Operation">
+      <End Role="Operation" EntitySet="Operation" />
+      <End Role="Card_work" EntitySet="Card_work" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Card_work_Post" Association="Self.FK_Card_work_Post">
+      <End Role="Post" EntitySet="Post" />
+      <End Role="Card_work" EntitySet="Card_work" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employees_Post" Association="Self.FK_Employees_Post">
+      <End Role="Post" EntitySet="Post" />
+      <End Role="Employees" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_card_Material" Association="Self.FK_Material_card_Material">
+      <End Role="Material" EntitySet="Material" />
+      <End Role="Material_card" EntitySet="Material_card" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_card_Nomencloture" Association="Self.FK_Material_card_Nomencloture">
+      <End Role="Nomencloture" EntitySet="Nomencloture" />
+      <End Role="Material_card" EntitySet="Material_card" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_Unit" Association="Self.FK_Material_Unit">
+      <End Role="Unit" EntitySet="Unit" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Passport_data_Employees" Association="Self.FK_Passport_data_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Passport_data" EntitySet="Passport_data" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Structure_Nomencloture" Association="Self.FK_Structure_Nomencloture">
+      <End Role="Nomencloture" EntitySet="Nomencloture" />
+      <End Role="Structure" EntitySet="Structure" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Structure_Nomencloture1" Association="Self.FK_Structure_Nomencloture1">
+      <End Role="Nomencloture" EntitySet="Nomencloture" />
+      <End Role="Structure" EntitySet="Structure" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

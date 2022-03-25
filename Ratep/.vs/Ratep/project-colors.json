@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "598a2667-a338-43e9-96a8-4debe658dcee": {
+      "ProjectGuid": "598a2667-a338-43e9-96a8-4debe658dcee",
+      "DisplayName": "Ratep",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "5af52a3f-6bf0-4fc9-ba18-1f5c7b7682dd": {
+      "ProjectGuid": "5af52a3f-6bf0-4fc9-ba18-1f5c7b7682dd",
+      "DisplayName": "TC_SP",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}

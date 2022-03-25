@@ -1,0 +1,537 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Practik1282Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Card_work">
+    <Key>
+      <PropertyRef Name="Key_card" />
+    </Key>
+    <Property Name="Key_card" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Num_product" Type="Int32" Nullable="false" />
+    <Property Name="Code_post" Type="Int32" Nullable="false" />
+    <Property Name="Num_operation" Type="Int32" Nullable="false" />
+    <Property Name="Order_operation" Type="Int32" Nullable="false" />
+    <Property Name="Time_spent" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Nomencloture" Relationship="Self.FK_Card_work_Nomencloture" FromRole="Card_work" ToRole="Nomencloture" />
+    <NavigationProperty Name="Operation" Relationship="Self.FK_Card_work_Operation" FromRole="Card_work" ToRole="Operation" />
+    <NavigationProperty Name="Post" Relationship="Self.FK_Card_work_Post" FromRole="Card_work" ToRole="Post" />
+  </EntityType>
+  <EntityType Name="Consumer">
+    <Key>
+      <PropertyRef Name="Num_consumer" />
+    </Key>
+    <Property Name="Num_consumer" Type="Int32" Nullable="false" />
+    <Property Name="Num_workshop" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Workshop" Relationship="Self.FK_Consumer_Workshop" FromRole="Consumer" ToRole="Workshop" />
+  </EntityType>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="Code_empl" />
+    </Key>
+    <Property Name="Code_empl" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Code_post" Type="Int32" Nullable="false" />
+    <Property Name="ID_user" Type="Int32" />
+    <NavigationProperty Name="Post" Relationship="Self.FK_Employees_Post" FromRole="Employees" ToRole="Post" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Employees_User" FromRole="Employees" ToRole="User" />
+    <NavigationProperty Name="Passport_data" Relationship="Self.FK_Passport_data_Employees" FromRole="Employees" ToRole="Passport_data" />
+  </EntityType>
+  <EntityType Name="Material">
+    <Key>
+      <PropertyRef Name="Num_material" />
+    </Key>
+    <Property Name="Num_material" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name_material" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Code_unit" Type="Int32" Nullable="false" />
+    <Property Name="Num_groups" Type="Int32" Nullable="false" />
+    <Property Name="Diametr" Type="Double" Nullable="false" />
+    <Property Name="Thick" Type="Double" Nullable="false" />
+    <Property Name="Width" Type="Int32" Nullable="false" />
+    <Property Name="Length" Type="Int32" Nullable="false" />
+    <Property Name="Num_stamp" Type="Int32" />
+    <Property Name="Num_profile" Type="Int32" />
+    <NavigationProperty Name="Material_card" Relationship="Self.FK_Material_card_Material" FromRole="Material" ToRole="Material_card" />
+    <NavigationProperty Name="Profile" Relationship="Self.FK_Material_Profile" FromRole="Material" ToRole="Profile" />
+    <NavigationProperty Name="Rationing_groups" Relationship="Self.FK_Material_Rationing_groups" FromRole="Material" ToRole="Rationing_groups" />
+    <NavigationProperty Name="Stamp" Relationship="Self.FK_Material_Stamp" FromRole="Material" ToRole="Stamp" />
+    <NavigationProperty Name="OKEI" Relationship="Self.FK_Material_Unit" FromRole="Material" ToRole="OKEI" />
+  </EntityType>
+  <EntityType Name="Material_card">
+    <Key>
+      <PropertyRef Name="Num_card" />
+    </Key>
+    <Property Name="Num_product" Type="Int32" Nullable="false" />
+    <Property Name="Num_material" Type="Int32" Nullable="false" />
+    <Property Name="Num_card" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Num_piece" Type="Int32" Nullable="false" />
+    <Property Name="Consumption_rate" Type="Double" Nullable="false" />
+    <Property Name="Provider_workshop" Type="Int32" />
+    <Property Name="Consumer_workshop" Type="Int32" />
+    <NavigationProperty Name="Material" Relationship="Self.FK_Material_card_Material" FromRole="Material_card" ToRole="Material" />
+    <NavigationProperty Name="Nomencloture" Relationship="Self.FK_Material_card_Nomencloture" FromRole="Material_card" ToRole="Nomencloture" />
+    <NavigationProperty Name="Work_piece" Relationship="Self.FK_Material_card_Work_piece" FromRole="Material_card" ToRole="Work_piece" />
+    <NavigationProperty Name="Workshop" Relationship="Self.FK_Material_card_Workshop1" FromRole="Material_card" ToRole="Workshop" />
+    <NavigationProperty Name="Workshop1" Relationship="Self.FK_Material_card_Workshop2" FromRole="Material_card" ToRole="Workshop" />
+  </EntityType>
+  <EntityType Name="Nomencloture">
+    <Key>
+      <PropertyRef Name="Num_product" />
+    </Key>
+    <Property Name="Num_product" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name_product" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Decimal_num" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Card_work" Relationship="Self.FK_Card_work_Nomencloture" FromRole="Nomencloture" ToRole="Card_work" />
+    <NavigationProperty Name="Material_card" Relationship="Self.FK_Material_card_Nomencloture" FromRole="Nomencloture" ToRole="Material_card" />
+    <NavigationProperty Name="Structure" Relationship="Self.FK_Structure_Nomencloture" FromRole="Nomencloture" ToRole="Structure" />
+    <NavigationProperty Name="Structure1" Relationship="Self.FK_Structure_Nomencloture1" FromRole="Nomencloture" ToRole="Structure" />
+  </EntityType>
+  <EntityType Name="OKEI">
+    <Key>
+      <PropertyRef Name="Code_unit" />
+    </Key>
+    <Property Name="Code_unit" Type="Int32" Nullable="false" />
+    <Property Name="Name_unit" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Material" Relationship="Self.FK_Material_Unit" FromRole="OKEI" ToRole="Material" />
+  </EntityType>
+  <EntityType Name="Operation">
+    <Key>
+      <PropertyRef Name="Num_operation" />
+    </Key>
+    <Property Name="Num_operation" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name_operation" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Card_work" Relationship="Self.FK_Card_work_Operation" FromRole="Operation" ToRole="Card_work" />
+  </EntityType>
+  <EntityType Name="Passport_data">
+    <Key>
+      <PropertyRef Name="Serial" />
+      <PropertyRef Name="Number" />
+    </Key>
+    <Property Name="Code_empl" Type="Int32" Nullable="false" />
+    <Property Name="Serial" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Number" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Date_birth" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Employees" Relationship="Self.FK_Passport_data_Employees" FromRole="Passport_data" ToRole="Employees" />
+  </EntityType>
+  <EntityType Name="Post">
+    <Key>
+      <PropertyRef Name="Code_post" />
+    </Key>
+    <Property Name="Code_post" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name_post" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Salary_per_hours" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="Card_work" Relationship="Self.FK_Card_work_Post" FromRole="Post" ToRole="Card_work" />
+    <NavigationProperty Name="Employees" Relationship="Self.FK_Employees_Post" FromRole="Post" ToRole="Employees" />
+  </EntityType>
+  <EntityType Name="Profile">
+    <Key>
+      <PropertyRef Name="Num_profile" />
+    </Key>
+    <Property Name="Num_profile" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Material" Relationship="Self.FK_Material_Profile" FromRole="Profile" ToRole="Material" />
+  </EntityType>
+  <EntityType Name="Provider">
+    <Key>
+      <PropertyRef Name="Num_provider" />
+    </Key>
+    <Property Name="Num_provider" Type="Int32" Nullable="false" />
+    <Property Name="Num_workshop" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Workshop" Relationship="Self.FK_Provider_Workshop" FromRole="Provider" ToRole="Workshop" />
+  </EntityType>
+  <EntityType Name="Rationing_groups">
+    <Key>
+      <PropertyRef Name="Num_groups" />
+    </Key>
+    <Property Name="Num_groups" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Material" Relationship="Self.FK_Material_Rationing_groups" FromRole="Rationing_groups" ToRole="Material" />
+  </EntityType>
+  <EntityType Name="Stamp">
+    <Key>
+      <PropertyRef Name="Num_stamp" />
+    </Key>
+    <Property Name="Num_stamp" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Material" Relationship="Self.FK_Material_Stamp" FromRole="Stamp" ToRole="Material" />
+  </EntityType>
+  <EntityType Name="Structure">
+    <Key>
+      <PropertyRef Name="Num_product_where" />
+      <PropertyRef Name="Num_product_what" />
+    </Key>
+    <Property Name="Num_product_where" Type="Int32" Nullable="false" />
+    <Property Name="Num_product_what" Type="Int32" Nullable="false" />
+    <Property Name="Quantity_product" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Nomencloture" Relationship="Self.FK_Structure_Nomencloture" FromRole="Structure" ToRole="Nomencloture" />
+    <NavigationProperty Name="Nomencloture1" Relationship="Self.FK_Structure_Nomencloture1" FromRole="Structure" ToRole="Nomencloture" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID_user" />
+    </Key>
+    <Property Name="ID_user" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Employees" Relationship="Self.FK_Employees_User" FromRole="User" ToRole="Employees" />
+  </EntityType>
+  <EntityType Name="Work_piece">
+    <Key>
+      <PropertyRef Name="Num_piece" />
+    </Key>
+    <Property Name="Num_piece" Type="Int32" Nullable="false" />
+    <Property Name="Weight" Type="Double" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Material_card" Relationship="Self.FK_Material_card_Work_piece" FromRole="Work_piece" ToRole="Material_card" />
+  </EntityType>
+  <EntityType Name="Workshop">
+    <Key>
+      <PropertyRef Name="Num_workshop" />
+    </Key>
+    <Property Name="Num_workshop" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Consumer" Relationship="Self.FK_Consumer_Workshop" FromRole="Workshop" ToRole="Consumer" />
+    <NavigationProperty Name="Material_card" Relationship="Self.FK_Material_card_Workshop1" FromRole="Workshop" ToRole="Material_card" />
+    <NavigationProperty Name="Material_card1" Relationship="Self.FK_Material_card_Workshop2" FromRole="Workshop" ToRole="Material_card" />
+    <NavigationProperty Name="Provider" Relationship="Self.FK_Provider_Workshop" FromRole="Workshop" ToRole="Provider" />
+  </EntityType>
+  <Association Name="FK_Card_work_Nomencloture">
+    <End Role="Nomencloture" Type="Self.Nomencloture" Multiplicity="1" />
+    <End Role="Card_work" Type="Self.Card_work" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nomencloture">
+        <PropertyRef Name="Num_product" />
+      </Principal>
+      <Dependent Role="Card_work">
+        <PropertyRef Name="Num_product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Card_work_Operation">
+    <End Role="Operation" Type="Self.Operation" Multiplicity="1" />
+    <End Role="Card_work" Type="Self.Card_work" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Operation">
+        <PropertyRef Name="Num_operation" />
+      </Principal>
+      <Dependent Role="Card_work">
+        <PropertyRef Name="Num_operation" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Card_work_Post">
+    <End Role="Post" Type="Self.Post" Multiplicity="1" />
+    <End Role="Card_work" Type="Self.Card_work" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Post">
+        <PropertyRef Name="Code_post" />
+      </Principal>
+      <Dependent Role="Card_work">
+        <PropertyRef Name="Code_post" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Consumer_Workshop">
+    <End Role="Workshop" Type="Self.Workshop" Multiplicity="0..1" />
+    <End Role="Consumer" Type="Self.Consumer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workshop">
+        <PropertyRef Name="Num_workshop" />
+      </Principal>
+      <Dependent Role="Consumer">
+        <PropertyRef Name="Num_workshop" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employees_Post">
+    <End Role="Post" Type="Self.Post" Multiplicity="1" />
+    <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Post">
+        <PropertyRef Name="Code_post" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="Code_post" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employees_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID_user" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="ID_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Passport_data_Employees">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+    <End Role="Passport_data" Type="Self.Passport_data" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="Code_empl" />
+      </Principal>
+      <Dependent Role="Passport_data">
+        <PropertyRef Name="Code_empl" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Material_card_Material">
+    <End Role="Material" Type="Self.Material" Multiplicity="1" />
+    <End Role="Material_card" Type="Self.Material_card" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Material">
+        <PropertyRef Name="Num_material" />
+      </Principal>
+      <Dependent Role="Material_card">
+        <PropertyRef Name="Num_material" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Material_Profile">
+    <End Role="Profile" Type="Self.Profile" Multiplicity="0..1" />
+    <End Role="Material" Type="Self.Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profile">
+        <PropertyRef Name="Num_profile" />
+      </Principal>
+      <Dependent Role="Material">
+        <PropertyRef Name="Num_profile" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Material_Rationing_groups">
+    <End Role="Rationing_groups" Type="Self.Rationing_groups" Multiplicity="1" />
+    <End Role="Material" Type="Self.Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rationing_groups">
+        <PropertyRef Name="Num_groups" />
+      </Principal>
+      <Dependent Role="Material">
+        <PropertyRef Name="Num_groups" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Material_Stamp">
+    <End Role="Stamp" Type="Self.Stamp" Multiplicity="0..1" />
+    <End Role="Material" Type="Self.Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stamp">
+        <PropertyRef Name="Num_stamp" />
+      </Principal>
+      <Dependent Role="Material">
+        <PropertyRef Name="Num_stamp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Material_Unit">
+    <End Role="OKEI" Type="Self.OKEI" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Material" Type="Self.Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OKEI">
+        <PropertyRef Name="Code_unit" />
+      </Principal>
+      <Dependent Role="Material">
+        <PropertyRef Name="Code_unit" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Material_card_Nomencloture">
+    <End Role="Nomencloture" Type="Self.Nomencloture" Multiplicity="1" />
+    <End Role="Material_card" Type="Self.Material_card" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nomencloture">
+        <PropertyRef Name="Num_product" />
+      </Principal>
+      <Dependent Role="Material_card">
+        <PropertyRef Name="Num_product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Material_card_Work_piece">
+    <End Role="Work_piece" Type="Self.Work_piece" Multiplicity="1" />
+    <End Role="Material_card" Type="Self.Material_card" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Work_piece">
+        <PropertyRef Name="Num_piece" />
+      </Principal>
+      <Dependent Role="Material_card">
+        <PropertyRef Name="Num_piece" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Material_card_Workshop1">
+    <End Role="Workshop" Type="Self.Workshop" Multiplicity="0..1" />
+    <End Role="Material_card" Type="Self.Material_card" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workshop">
+        <PropertyRef Name="Num_workshop" />
+      </Principal>
+      <Dependent Role="Material_card">
+        <PropertyRef Name="Provider_workshop" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Material_card_Workshop2">
+    <End Role="Workshop" Type="Self.Workshop" Multiplicity="0..1" />
+    <End Role="Material_card" Type="Self.Material_card" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workshop">
+        <PropertyRef Name="Num_workshop" />
+      </Principal>
+      <Dependent Role="Material_card">
+        <PropertyRef Name="Consumer_workshop" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Structure_Nomencloture">
+    <End Role="Nomencloture" Type="Self.Nomencloture" Multiplicity="1" />
+    <End Role="Structure" Type="Self.Structure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nomencloture">
+        <PropertyRef Name="Num_product" />
+      </Principal>
+      <Dependent Role="Structure">
+        <PropertyRef Name="Num_product_where" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Structure_Nomencloture1">
+    <End Role="Nomencloture" Type="Self.Nomencloture" Multiplicity="1" />
+    <End Role="Structure" Type="Self.Structure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nomencloture">
+        <PropertyRef Name="Num_product" />
+      </Principal>
+      <Dependent Role="Structure">
+        <PropertyRef Name="Num_product_what" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Provider_Workshop">
+    <End Role="Workshop" Type="Self.Workshop" Multiplicity="1" />
+    <End Role="Provider" Type="Self.Provider" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workshop">
+        <PropertyRef Name="Num_workshop" />
+      </Principal>
+      <Dependent Role="Provider">
+        <PropertyRef Name="Num_workshop" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Practik1282Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Card_work" EntityType="Self.Card_work" />
+    <EntitySet Name="Consumer" EntityType="Self.Consumer" />
+    <EntitySet Name="Employees" EntityType="Self.Employees" />
+    <EntitySet Name="Material" EntityType="Self.Material" />
+    <EntitySet Name="Material_card" EntityType="Self.Material_card" />
+    <EntitySet Name="Nomencloture" EntityType="Self.Nomencloture" />
+    <EntitySet Name="OKEI" EntityType="Self.OKEI" />
+    <EntitySet Name="Operation" EntityType="Self.Operation" />
+    <EntitySet Name="Passport_data" EntityType="Self.Passport_data" />
+    <EntitySet Name="Post" EntityType="Self.Post" />
+    <EntitySet Name="Profile" EntityType="Self.Profile" />
+    <EntitySet Name="Provider" EntityType="Self.Provider" />
+    <EntitySet Name="Rationing_groups" EntityType="Self.Rationing_groups" />
+    <EntitySet Name="Stamp" EntityType="Self.Stamp" />
+    <EntitySet Name="Structure" EntityType="Self.Structure" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="User" EntityType="Self.User" />
+    <EntitySet Name="Work_piece" EntityType="Self.Work_piece" />
+    <EntitySet Name="Workshop" EntityType="Self.Workshop" />
+    <AssociationSet Name="FK_Card_work_Nomencloture" Association="Self.FK_Card_work_Nomencloture">
+      <End Role="Nomencloture" EntitySet="Nomencloture" />
+      <End Role="Card_work" EntitySet="Card_work" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Card_work_Operation" Association="Self.FK_Card_work_Operation">
+      <End Role="Operation" EntitySet="Operation" />
+      <End Role="Card_work" EntitySet="Card_work" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Card_work_Post" Association="Self.FK_Card_work_Post">
+      <End Role="Post" EntitySet="Post" />
+      <End Role="Card_work" EntitySet="Card_work" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Consumer_Workshop" Association="Self.FK_Consumer_Workshop">
+      <End Role="Workshop" EntitySet="Workshop" />
+      <End Role="Consumer" EntitySet="Consumer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employees_Post" Association="Self.FK_Employees_Post">
+      <End Role="Post" EntitySet="Post" />
+      <End Role="Employees" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employees_User" Association="Self.FK_Employees_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Employees" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Passport_data_Employees" Association="Self.FK_Passport_data_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Passport_data" EntitySet="Passport_data" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_card_Material" Association="Self.FK_Material_card_Material">
+      <End Role="Material" EntitySet="Material" />
+      <End Role="Material_card" EntitySet="Material_card" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_Profile" Association="Self.FK_Material_Profile">
+      <End Role="Profile" EntitySet="Profile" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_Rationing_groups" Association="Self.FK_Material_Rationing_groups">
+      <End Role="Rationing_groups" EntitySet="Rationing_groups" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_Stamp" Association="Self.FK_Material_Stamp">
+      <End Role="Stamp" EntitySet="Stamp" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_Unit" Association="Self.FK_Material_Unit">
+      <End Role="OKEI" EntitySet="OKEI" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_card_Nomencloture" Association="Self.FK_Material_card_Nomencloture">
+      <End Role="Nomencloture" EntitySet="Nomencloture" />
+      <End Role="Material_card" EntitySet="Material_card" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_card_Work_piece" Association="Self.FK_Material_card_Work_piece">
+      <End Role="Work_piece" EntitySet="Work_piece" />
+      <End Role="Material_card" EntitySet="Material_card" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_card_Workshop1" Association="Self.FK_Material_card_Workshop1">
+      <End Role="Workshop" EntitySet="Workshop" />
+      <End Role="Material_card" EntitySet="Material_card" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_card_Workshop2" Association="Self.FK_Material_card_Workshop2">
+      <End Role="Workshop" EntitySet="Workshop" />
+      <End Role="Material_card" EntitySet="Material_card" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Structure_Nomencloture" Association="Self.FK_Structure_Nomencloture">
+      <End Role="Nomencloture" EntitySet="Nomencloture" />
+      <End Role="Structure" EntitySet="Structure" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Structure_Nomencloture1" Association="Self.FK_Structure_Nomencloture1">
+      <End Role="Nomencloture" EntitySet="Nomencloture" />
+      <End Role="Structure" EntitySet="Structure" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Provider_Workshop" Association="Self.FK_Provider_Workshop">
+      <End Role="Workshop" EntitySet="Workshop" />
+      <End Role="Provider" EntitySet="Provider" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

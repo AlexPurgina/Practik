@@ -1,0 +1,54 @@
+﻿<Window x:Class="Ratep.MaterialWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ratep"
+        mc:Ignorable="d"
+        Height="450" Width="692"  WindowStyle="SingleBorderWindow" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="127"/>
+            <RowDefinition Height="204"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF97E0C2" Offset="0"/>
+                <GradientStop Color="#FFB1AEE2" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <TextBlock Text="Материал" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="238,0,0,0" FontSize="32" Width="192" Height="128"/>
+        <DataGrid x:Name="dgMaterial" AutoGenerateColumns="False" RenderTransformOrigin="0.502,0.517" Margin="0,96,0,0" Grid.RowSpan="2" CanUserAddRows="False">
+            <DataGrid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF97E0C2" Offset="0"/>
+                    <GradientStop Color="#FFB1AEE2" Offset="1"/>
+                </LinearGradientBrush>
+            </DataGrid.Background>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Материал" Binding="{Binding Name_material}" Width="*"/>
+                <DataGridTextColumn Header="Единицы измерения" Binding="{Binding OKEI.Name_unit}" Width="*"/>
+                <DataGridTextColumn Header="Группа нормирования" Binding="{Binding Rationing_groups.Name}" Width="*"/>
+                <DataGridTextColumn Header="Диаметр" Binding="{Binding Diametr}" Width="*"/>
+                <DataGridTextColumn Header="Толщина" Binding="{Binding Thick}" Width="*"/>
+                <DataGridTextColumn Header="Ширина" Binding="{Binding Width}" Width="*"/>
+                <DataGridTextColumn Header="Марка" Binding="{Binding Stamp.Name}" Width="*"/>
+                <DataGridTextColumn Header="Профиль" Binding="{Binding Profile.Name}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="Delite"  Margin="66,10,514,32"  Content="Удалить" Grid.Row="2" RenderTransformOrigin="-0.838,1.918" Background="#FF5F799C" Click="Delite_Click" BorderBrush="#FF5F799C"/>
+        <Button x:Name="Update" Margin="514,9,66,32"  Content="Изменить"  Grid.Row="2" Background="#FF5F799C" Click="Update_Click" BorderBrush="#FF5F799C"/>
+        <Button x:Name="Add" Margin="298,9,282,32"  Content="Добавить"  Grid.Row="2" RenderTransformOrigin="0.064,0.566" Background="#FF5F799C" Click="Add_Click" BorderBrush="#FF5F799C"/>
+        <TextBox x:Name="unitsh"  HorizontalAlignment="Left" Margin="366,52,0,51" TextWrapping="Wrap" Text="Поиск по единицам измерения..." Foreground="Gray"  Width="268"  GotFocus="unitsh_GotFocus"  LostFocus="unitsh_LostFocus"  TextChanged="unitsh_TextChanged"/>
+        <TextBox x:Name="matersh"  HorizontalAlignment="Left" Height="24" Margin="33,0,0,0" TextWrapping="Wrap" Text="Поиск по материалу..." Foreground="Gray" VerticalAlignment="Center" Width="275"  GotFocus="matersh_GotFocus" LostFocus="matersh_LostFocus" TextChanged="matersh_TextChanged"/>
+        <Button x:Name="btnBack"  HorizontalAlignment="Left" Margin="625,0,0,0" VerticalAlignment="Top" Width="57" Background="#FF98DDC4" BorderBrush="#FF98DDC4" Click="btnBack_Click" Height="49">
+            <Image Source="back.png" Width="53"/>
+        </Button>
+
+    </Grid>
+</Window>
